@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "denyRead": [
+        "~/.aws/**",
+        "~/.ssh/**",
+        "~/.config/**",
+        "~/.gnupg/**",
+
+        "**/.env",
+        "**/.env.*",
+        "**/secrets/**",
+        "**/credentials/**",
+
+        "**/*.pem",
+        "**/*.key",
+        "**/*.p12",
+        "**/*.crt",
+
+        "**/id_rsa*",
+        "**/id_ed25519*"
+      ]
+    }
+  },
+
+  "permissions": {
+    "disableBypassPermissionsMode": "disable",
+
+    "allow": [
+      "Read(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "Edit(*)",
+      "Write(*)",
+
+      "Bash(ls:*)",
+      "Bash(tree:*)",
+      "Bash(pwd:*)",
+      "Bash(cd:*)",
+      "Bash(wc:*)",
+
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+
+      "Skill(*)",
+      "WebSearch"
+    ],
+
+    "ask": [
+      "Bash(rm:*)",
+      "Bash(mv:*)",
+      "Bash(cp:*)",
+      "Bash(find:*)",
+      "Bash(npm:*)",
+      "Bash(yarn:*)",
+      "Bash(pnpm:*)",
+      "Bash(bun:*)",
+      "Bash(bundle:*)",
+      "Bash(rake:*)",
+      "Bash(make:*)",
+      "Bash(docker:*)"
+    ],
+
+    "deny": [
+      "Read(~/.aws/**)",
+      "Read(~/.ssh/**)",
+      "Read(~/.config/**)",
+      "Read(~/.gnupg/**)",
+
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/secrets/**)",
+      "Read(**/credentials/**)",
+
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/*.p12)",
+      "Read(**/*.crt)",
+      "Read(**/id_rsa*)",
+      "Read(**/id_ed25519*)",
+
+      "Bash(rm -rf *)",
+      "Bash(chmod 777 *)",
+
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(nc *)",
+      "Bash(ssh *)",
+      "Bash(scp *)",
+
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Bash(git.*force:*)",
+      "Bash(git.*--hard:*)"
+    ]
+  },
+
+  "enabledMcpjsonServers": [
+    "chrome-devtools",
+    "serena",
+    "context7",
+    "drawio",
+    "mermaid-mcp",
+    "figma",
+    "playwright"
+  ],
+
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/validate-command.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/log-error.sh"
+          }
+        ]
+      }
+    ]
+  },
+
+  "enabledPlugins": {
+    "document-skills@anthropic-agent-skills": true
+  },
+
+  "statusLine": {
+    "type": "command",
+    "command": "bash .claude/statusline.sh"
+  },
+
+  "plansDirectory": "./.claude/plans",
+  "outputStyle": "Explanatory"
+}

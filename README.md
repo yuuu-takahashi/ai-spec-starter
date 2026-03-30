@@ -17,20 +17,20 @@ Claude Code × 仕様駆動開発のスターターキット。
 ### フック (`.claude/hooks/`)
 
 | フック | タイミング | 内容 |
-|---|---|---|
+| --- | --- | --- |
 | **validate-command.sh** | PreToolUse (Bash) | `rm -rf` や `prod` を含むコマンドをブロック |
 | **log-error.sh** | PostToolUseFailure | エラーを `.claude/error-log.jsonl` にJSONL形式で自動記録 |
 
 ### カスタムスキル (`.claude/skills/`)
 
 | スキル | 説明 |
-|---|---|
-| **my:fix-skills** | エラーログを分析し、原因スキルを特定して SKILL.md を直接修正する |
+| --- | --- |
+| **my.fix-skills** | エラーログを分析し、原因スキルを特定して SKILL.md を直接修正する |
 
 ### MCP サーバー (`.mcp.json`)
 
 | サーバー | 用途 |
-|---|---|
+| --- | --- |
 | **chrome-devtools** | ブラウザのDevToolsをClaude Codeから操作 |
 | **serena** | コードベースのセマンティック解析 |
 | **context7** | ライブラリのドキュメント参照 |
@@ -49,7 +49,7 @@ Claude Code × 仕様駆動開発のスターターキット。
 
 ## ディレクトリ構成
 
-```
+```text
 .
 ├── .claude/
 │   ├── settings.json        # Claude Code 設定
@@ -75,19 +75,10 @@ Claude Code × 仕様駆動開発のスターターキット。
 
 - [Claude Code](https://docs.claude.com/en/docs/claude-code) がインストール済みであること
 - Node.js（npx が使えること）
-- Python / uv（Serena の起動に必要）
-- jq（フックのJSONパースに必要）
 
 ### 使い方
 
-1. このリポジトリをクローンまたはテンプレートとして使用
-2. プロジェクトディレクトリで `claude` を起動
-
-```bash
-git clone https://github.com/yuuu-takahashi/ai-spec-starter.git my-project
-cd my-project
-claude
-```
+TODO:
 
 MCP サーバーや設定は自動的に読み込まれます。
 

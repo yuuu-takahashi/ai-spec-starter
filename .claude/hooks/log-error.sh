@@ -11,6 +11,7 @@ if [ ! -f "$LOG_FILE" ]; then
 fi
 
 TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name // "unknown"')
+TOOL_INPUT=$(echo "$INPUT" | jq -c '.tool_input // {}')
 ERROR=$(echo "$INPUT" | jq -r '.error // "no error message"')
 
 # 中断（ユーザーキャンセル）は記録しない
@@ -27,7 +28,8 @@ jq -n \
   --arg id "$ID" \
   --arg ts "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
   --arg tool "$TOOL_NAME" \
+  --argjson input "$TOOL_INPUT" \
   --arg error "$ERROR" \
-  '{id: $id, timestamp: $ts, tool: $tool, error: $error, status: "open"}' >> "$LOG_FILE"
+  '{id: $id, timestamp: $ts, tool: $tool, tool_input: $input, error: $error, status: "open"}' >> "$LOG_FILE"
 
 exit 0

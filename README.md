@@ -9,8 +9,23 @@ Claude Code × 仕様駆動開発のスターターキット。
 
 - **サンドボックス** — 機密ファイル（`.env`, SSH鍵, AWS認証情報など）の読み取りを禁止
 - **権限制御** — allow / ask / deny の3段階でツール実行を管理
-- **ステータスライン** — コンテキスト使用量・レート制限をリアルタイム表示
+- **ステータスライン** — コンテキスト使用量・レート制限をリアルタイム表示（`.claude/statusline.sh`）
 - **プラグイン** — `document-skills` を有効化済み
+- **出力スタイル** — `Explanatory`（教育的な解説付き）
+- **プランディレクトリ** — `.claude/plans/` に計画ファイルを保存
+
+### フック (`.claude/hooks/`)
+
+| フック | タイミング | 内容 |
+|---|---|---|
+| **validate-command.sh** | PreToolUse (Bash) | `rm -rf` や `prod` を含むコマンドをブロック |
+| **log-error.sh** | PostToolUseFailure | エラーを `.claude/error-log.jsonl` にJSONL形式で自動記録 |
+
+### カスタムスキル (`.claude/skills/`)
+
+| スキル | 説明 |
+|---|---|
+| **my:fix-skills** | エラーログを分析し、原因スキルを特定して SKILL.md を直接修正する |
 
 ### MCP サーバー (`.mcp.json`)
 
@@ -24,14 +39,57 @@ Claude Code × 仕様駆動開発のスターターキット。
 | **figma** | Figma デザインとの連携 |
 | **playwright** | ブラウザ自動操作・E2Eテスト |
 
+### Serena 設定 (`.serena/`)
+
+- **project.yml** — Serena MCP サーバーのプロジェクト設定（言語サーバー: bash / yaml）
+
 ### その他
 
 - **仕様テンプレート** — 機能仕様・画面仕様などのひな形（予定）
-- **カスタムスキル** — よく使う操作のスキル定義（予定）
+
+## ディレクトリ構成
+
+```
+.
+├── .claude/
+│   ├── settings.json        # Claude Code 設定
+│   ├── statusline.sh        # ステータスライン表示スクリプト
+│   ├── hooks/
+│   │   ├── validate-command.sh  # Bash コマンド検証
+│   │   └── log-error.sh        # エラーログ記録
+│   ├── skills/
+│   │   └── my.fix-skills/
+│   │       └── SKILL.md         # スキル修正スキル
+│   ├── plans/               # 計画ファイル置き場
+│   ├── agents/              # エージェント定義置き場
+│   └── rules/               # ルール定義置き場
+├── .serena/
+│   └── project.yml          # Serena プロジェクト設定
+├── .mcp.json                # MCP サーバー定義
+└── README.md
+```
 
 ## セットアップ
 
-TODO
+### 前提条件
+
+- [Claude Code](https://docs.claude.com/en/docs/claude-code) がインストール済みであること
+- Node.js（npx が使えること）
+- Python / uv（Serena の起動に必要）
+- jq（フックのJSONパースに必要）
+
+### 使い方
+
+1. このリポジトリをクローンまたはテンプレートとして使用
+2. プロジェクトディレクトリで `claude` を起動
+
+```bash
+git clone https://github.com/yuuu-takahashi/ai-spec-starter.git my-project
+cd my-project
+claude
+```
+
+MCP サーバーや設定は自動的に読み込まれます。
 
 ## ライセンス
 

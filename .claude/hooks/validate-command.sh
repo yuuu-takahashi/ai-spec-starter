@@ -7,8 +7,8 @@ if echo "$COMMAND" | grep -q 'rm -rf'; then
   exit 2
 fi
 
-if echo "$COMMAND" | grep -q 'prod'; then
-  echo 'Blocked: production access is not allowed' >&2
+if echo "$COMMAND" | grep -Eqi '(^|[[:space:]])(prod|production)([[:space:]]|$)|(--env[=[:space:]]*prod|--environment[=[:space:]]*prod)'; then
+  echo 'Blocked: production-targeted commands are not allowed' >&2
   exit 2
 fi
 

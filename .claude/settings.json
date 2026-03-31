@@ -43,10 +43,22 @@
       "Bash(pwd:*)",
       "Bash(cd:*)",
       "Bash(wc:*)",
+      "Bash(find:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
 
       "Bash(git status:*)",
       "Bash(git diff:*)",
       "Bash(git log:*)",
+      "Bash(git add:*)",
+
+      "Bash(npm run:*)",
+      "Bash(npm test:*)",
+      "Bash(npm exec:*)",
+      "Bash(yarn:*)",
+      "Bash(pnpm:*)",
+      "Bash(bun:*)",
+      "Bash(make:*)",
 
       "Skill(*)",
       "WebSearch"
@@ -54,16 +66,10 @@
 
     "ask": [
       "Bash(rm:*)",
-      "Bash(mv:*)",
-      "Bash(cp:*)",
-      "Bash(find:*)",
-      "Bash(npm:*)",
-      "Bash(yarn:*)",
-      "Bash(pnpm:*)",
-      "Bash(bun:*)",
+      "Bash(npm install:*)",
+      "Bash(npm publish:*)",
       "Bash(bundle:*)",
       "Bash(rake:*)",
-      "Bash(make:*)",
       "Bash(docker:*)"
     ],
 

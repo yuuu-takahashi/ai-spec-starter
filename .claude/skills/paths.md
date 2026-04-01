@@ -6,7 +6,7 @@
 
 | 変数 | パス | 備考 |
 | --- | --- | --- |
-| `KNOWLEDGE_BASE` | `.knowledge/` | `settings.json` の `plansDirectory` と一致させる |
+| `KNOWLEDGE_BASE` | `.knowledge/` | ドキュメント系出力の共通ルート |
 
 ## 出力先一覧
 
@@ -35,6 +35,6 @@
 ## Notes
 
 - このリポジトリではドキュメント系の出力先を `KNOWLEDGE_BASE` 配下に集約する
-- `KNOWLEDGE_BASE` を変更する場合は `settings.json` の `plansDirectory` も合わせて更新する
+- `KNOWLEDGE_BASE` を変更する場合は各スキルの参照先も合わせて更新する
 - 新しいスキルを追加する場合も、まず既存キーで足りるかを確認する
 - 新しい保存先が必要なら、先にこのファイルへキーを追加してから `SKILL.md` 側で参照する

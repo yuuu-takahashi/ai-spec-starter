@@ -34,7 +34,7 @@ compatibility: |
 ### 1. Issue
 
 | 操作 | コマンド例 |
-|------|-----------|
+| ------ | ----------- |
 | オープン Issue 一覧 | `gh issue list --limit 1000` |
 | 全 Issue（クローズ含む） | `gh issue list --state all --limit 1000` |
 | ラベルで絞り込み | `gh issue list --label "bug" --limit 1000` |
@@ -46,7 +46,7 @@ compatibility: |
 ### 2. Pull Request
 
 | 操作 | コマンド例 |
-|------|-----------|
+| ------ | ----------- |
 | オープン PR 一覧 | `gh pr list --limit 1000` |
 | マージ済み PR | `gh pr list --state merged --limit 1000` |
 | 自分の PR | `gh pr list --author @me --limit 1000` |
@@ -58,7 +58,7 @@ compatibility: |
 ### 3. リリース・タグ
 
 | 操作 | コマンド例 |
-|------|-----------|
+| ------ | ----------- |
 | リリース一覧 | `gh release list --limit 1000` |
 | 最新リリース | `gh release view --json tagName,name,body,publishedAt` |
 | 特定リリースの詳細 | `gh release view <tag>` |
@@ -67,7 +67,7 @@ compatibility: |
 ### 4. ブランチ
 
 | 操作 | コマンド例 |
-|------|-----------|
+| ------ | ----------- |
 | リモートブランチ一覧 | `git branch -r` |
 | ローカル + リモート | `git branch -a` |
 | デフォルトブランチ | `gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name'` |
@@ -76,7 +76,7 @@ compatibility: |
 ### 5. GitHub Actions / ワークフロー
 
 | 操作 | コマンド例 |
-|------|-----------|
+| ------ | ----------- |
 | 最近のワークフロー実行 | `gh run list --limit 1000` |
 | 特定ワークフローの実行 | `gh run list --workflow <name> --limit 1000` |
 | 実行の詳細 | `gh run view <run-id>` |
@@ -87,7 +87,7 @@ compatibility: |
 ### 6. リポジトリ情報
 
 | 操作 | コマンド例 |
-|------|-----------|
+| ------ | ----------- |
 | リポジトリ概要 | `gh repo view` |
 | JSON で詳細取得 | `gh repo view --json name,description,url,stargazerCount,forkCount,isPrivate,defaultBranchRef,languages,licenseInfo` |
 | コントリビューター | `gh api repos/{owner}/{repo}/contributors --jq '.[] \| "\(.login) (\(.contributions) commits)"'` |
@@ -97,7 +97,7 @@ compatibility: |
 ### 7. ラベル・マイルストーン・プロジェクト
 
 | 操作 | コマンド例 |
-|------|-----------|
+| ------ | ----------- |
 | ラベル一覧 | `gh label list` |
 | マイルストーン一覧 | `gh api repos/{owner}/{repo}/milestones --jq '.[] \| "\(.title) - \(.state) (\(.open_issues) open, \(.closed_issues) closed)"'` |
 | プロジェクト一覧 | `gh project list` |
@@ -105,7 +105,7 @@ compatibility: |
 ### 8. 通知・セキュリティ
 
 | 操作 | コマンド例 |
-|------|-----------|
+| ------ | ----------- |
 | Dependabot アラート | `gh api repos/{owner}/{repo}/dependabot/alerts --jq '.[] \| "\(.state): \(.security_advisory.summary)"'` |
 | シークレットスキャンアラート | `gh api repos/{owner}/{repo}/secret-scanning/alerts` |
 

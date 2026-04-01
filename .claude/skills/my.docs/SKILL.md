@@ -11,7 +11,7 @@ compatibility: |
 
 # Overview
 
-`my.docs` は会話内容を Markdown に保存するためのスキルです。入力内容を見て最適な文書タイプに切り替え、単なる会話要約ではなく、後から読み返せる記録として整理して保存します。このリポジトリでは出力先を `.claude/plans/` 配下に寄せて運用します。
+`my.docs` は会話内容を Markdown に保存するためのスキルです。入力内容を見て最適な文書タイプに切り替え、単なる会話要約ではなく、後から読み返せる記録として整理して保存します。このリポジトリでは出力先を `.knowledge/` 配下に寄せて運用します（`paths.md` の `KNOWLEDGE_BASE` を参照）。
 
 基本方針は以下です。
 
@@ -164,7 +164,7 @@ compatibility: |
 ## Save mapping
 
 - `Thread summary` は基本的に `DOCS`
-- `Decision / hand-off note` は基本的に `DOCS`、作業途中の hand-off や thread log は `PLANS_CLAUDE`
+- `Decision / hand-off note` は基本的に `DOCS`、作業途中の hand-off や thread log は `KNOWLEDGE_ROOT`
 - `Error analysis` は `ERROR_ANALYSIS`
 - `Idea note` は `IDEA`
 

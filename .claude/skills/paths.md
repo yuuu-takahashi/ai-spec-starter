@@ -5,7 +5,7 @@
 ## 出力先一覧
 
 | キー | パス | 用途 | 使用スキル |
-|------|------|------|------------|
+| ------ | ------ | ------ | ------------ |
 | `DOCS` | `.claude/plans/docs/` | 会話サマリー・技術決定（docs モード） | `my.docs` |
 | `ERROR_ANALYSIS` | `.claude/plans/errors/` | エラー分析レポート（error モード） | `my.docs`, `my.fix-skills` |
 | `IDEA` | `.claude/plans/ideas/` | アイデアメモ（idea モード） | `my.docs` |
@@ -19,7 +19,7 @@
 ## ファイル命名規則
 
 | スキル | ファイル名パターン |
-|--------|-------------------|
+| -------- | ------------------- |
 | `my.docs` (docs) | `docs-YYYY-MM-DD-{topic}.md` |
 | `my.docs` (error) | `error-YYYY-MM-DD-{error-name}.md` |
 | `my.docs` (idea) | `idea-YYYY-MM-DD-{title}.md` |

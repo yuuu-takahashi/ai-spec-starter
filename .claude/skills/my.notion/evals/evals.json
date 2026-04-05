@@ -1,0 +1,23 @@
+{
+  "skill_name": "my:notion",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Notion で最近の議事録を探して、内容をまとめて教えて",
+      "expected_output": "notion-search で議事録を検索し、結果から notion-fetch で詳細取得、要約を生成する",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Notion のチームメンバー一覧を見せて",
+      "expected_output": "notion-get-teams または notion-get-users でワークスペースのメンバー情報を取得し一覧表示する",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Notion でタスク管理用の新しいデータベースを作って。ステータス、優先度、担当者、期限のカラムが欲しい",
+      "expected_output": "notion-create-database で SQL DDL 風スキーマを使い、指定カラムを持つ DB を作成する",
+      "files": []
+    }
+  ]
+}

@@ -33,81 +33,81 @@ compatibility: |
 
 ### 1. Issue
 
-| 操作 | コマンド例 |
-| ------ | ----------- |
-| オープン Issue 一覧 | `gh issue list --limit 1000` |
-| 全 Issue（クローズ含む） | `gh issue list --state all --limit 1000` |
-| ラベルで絞り込み | `gh issue list --label "bug" --limit 1000` |
-| アサイン先で絞り込み | `gh issue list --assignee @me --limit 1000` |
-| Issue の詳細 | `gh issue view <number>` |
-| Issue のコメント | `gh api repos/{owner}/{repo}/issues/<number>/comments` |
-| Issue の検索 | `gh issue list --search "keyword" --limit 1000` |
+| 操作                     | コマンド例                                             |
+| ------------------------ | ------------------------------------------------------ |
+| オープン Issue 一覧      | `gh issue list --limit 1000`                           |
+| 全 Issue（クローズ含む） | `gh issue list --state all --limit 1000`               |
+| ラベルで絞り込み         | `gh issue list --label "bug" --limit 1000`             |
+| アサイン先で絞り込み     | `gh issue list --assignee @me --limit 1000`            |
+| Issue の詳細             | `gh issue view <number>`                               |
+| Issue のコメント         | `gh api repos/{owner}/{repo}/issues/<number>/comments` |
+| Issue の検索             | `gh issue list --search "keyword" --limit 1000`        |
 
 ### 2. Pull Request
 
-| 操作 | コマンド例 |
-| ------ | ----------- |
-| オープン PR 一覧 | `gh pr list --limit 1000` |
-| マージ済み PR | `gh pr list --state merged --limit 1000` |
-| 自分の PR | `gh pr list --author @me --limit 1000` |
-| PR の詳細 | `gh pr view <number>` |
-| PR のレビュー状況 | `gh pr view <number> --json reviews` |
-| PR の差分 | `gh pr diff <number>` |
-| PR のチェック状況 | `gh pr checks <number>` |
+| 操作              | コマンド例                               |
+| ----------------- | ---------------------------------------- |
+| オープン PR 一覧  | `gh pr list --limit 1000`                |
+| マージ済み PR     | `gh pr list --state merged --limit 1000` |
+| 自分の PR         | `gh pr list --author @me --limit 1000`   |
+| PR の詳細         | `gh pr view <number>`                    |
+| PR のレビュー状況 | `gh pr view <number> --json reviews`     |
+| PR の差分         | `gh pr diff <number>`                    |
+| PR のチェック状況 | `gh pr checks <number>`                  |
 
 ### 3. リリース・タグ
 
-| 操作 | コマンド例 |
-| ------ | ----------- |
-| リリース一覧 | `gh release list --limit 1000` |
-| 最新リリース | `gh release view --json tagName,name,body,publishedAt` |
-| 特定リリースの詳細 | `gh release view <tag>` |
-| タグ一覧 | `git tag --sort=-creatordate` |
+| 操作               | コマンド例                                             |
+| ------------------ | ------------------------------------------------------ |
+| リリース一覧       | `gh release list --limit 1000`                         |
+| 最新リリース       | `gh release view --json tagName,name,body,publishedAt` |
+| 特定リリースの詳細 | `gh release view <tag>`                                |
+| タグ一覧           | `git tag --sort=-creatordate`                          |
 
 ### 4. ブランチ
 
-| 操作 | コマンド例 |
-| ------ | ----------- |
-| リモートブランチ一覧 | `git branch -r` |
-| ローカル + リモート | `git branch -a` |
-| デフォルトブランチ | `gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name'` |
-| ブランチの保護ルール | `gh api repos/{owner}/{repo}/branches/<branch>/protection` |
+| 操作                 | コマンド例                                                           |
+| -------------------- | -------------------------------------------------------------------- |
+| リモートブランチ一覧 | `git branch -r`                                                      |
+| ローカル + リモート  | `git branch -a`                                                      |
+| デフォルトブランチ   | `gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name'` |
+| ブランチの保護ルール | `gh api repos/{owner}/{repo}/branches/<branch>/protection`           |
 
 ### 5. GitHub Actions / ワークフロー
 
-| 操作 | コマンド例 |
-| ------ | ----------- |
-| 最近のワークフロー実行 | `gh run list --limit 1000` |
+| 操作                   | コマンド例                                   |
+| ---------------------- | -------------------------------------------- |
+| 最近のワークフロー実行 | `gh run list --limit 1000`                   |
 | 特定ワークフローの実行 | `gh run list --workflow <name> --limit 1000` |
-| 実行の詳細 | `gh run view <run-id>` |
-| 実行ログ | `gh run view <run-id> --log` |
-| 失敗した実行のみ | `gh run list --status failure --limit 1000` |
-| ワークフロー一覧 | `gh workflow list` |
+| 実行の詳細             | `gh run view <run-id>`                       |
+| 実行ログ               | `gh run view <run-id> --log`                 |
+| 失敗した実行のみ       | `gh run list --status failure --limit 1000`  |
+| ワークフロー一覧       | `gh workflow list`                           |
 
 ### 6. リポジトリ情報
 
-| 操作 | コマンド例 |
-| ------ | ----------- |
-| リポジトリ概要 | `gh repo view` |
-| JSON で詳細取得 | `gh repo view --json name,description,url,stargazerCount,forkCount,isPrivate,defaultBranchRef,languages,licenseInfo` |
-| コントリビューター | `gh api repos/{owner}/{repo}/contributors --jq '.[] \| "\(.login) (\(.contributions) commits)"'` |
-| コラボレーター | `gh api repos/{owner}/{repo}/collaborators --jq '.[].login'` |
-| 言語別割合 | `gh api repos/{owner}/{repo}/languages` |
+| 操作               | コマンド例                                                                                                           |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| リポジトリ概要     | `gh repo view`                                                                                                       |
+| JSON で詳細取得    | `gh repo view --json name,description,url,stargazerCount,forkCount,isPrivate,defaultBranchRef,languages,licenseInfo` |
+| コントリビューター | `gh api repos/{owner}/{repo}/contributors --jq '.[] \| "\(.login) (\(.contributions) commits)"'`                     |
+| コラボレーター     | `gh api repos/{owner}/{repo}/collaborators --jq '.[].login'`                                                         |
+| 言語別割合         | `gh api repos/{owner}/{repo}/languages`                                                                              |
 
 ### 7. ラベル・マイルストーン・プロジェクト
 
-| 操作 | コマンド例 |
-| ------ | ----------- |
-| ラベル一覧 | `gh label list` |
+| 操作               | コマンド例                                                                                                                      |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| ラベル一覧         | `gh label list`                                                                                                                 |
 | マイルストーン一覧 | `gh api repos/{owner}/{repo}/milestones --jq '.[] \| "\(.title) - \(.state) (\(.open_issues) open, \(.closed_issues) closed)"'` |
-| プロジェクト一覧 | `gh project list` |
+| プロジェクト一覧   | `gh project list`                                                                                                               |
 
 ### 8. 通知・セキュリティ
 
-| 操作 | コマンド例 |
-| ------ | ----------- |
-| Dependabot アラート | `gh api repos/{owner}/{repo}/dependabot/alerts --jq '.[] \| "\(.state): \(.security_advisory.summary)"'` |
-| シークレットスキャンアラート | `gh api repos/{owner}/{repo}/secret-scanning/alerts` |
+| 操作                         | コマンド例                                                                                               |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Dependabot アラート          | `gh api repos/{owner}/{repo}/dependabot/alerts --jq '.[] \| "\(.state): \(.security_advisory.summary)"'` |
+| シークレットスキャンアラート | `gh api repos/{owner}/{repo}/secret-scanning/alerts`                                                     |
 
 ## Workflow
 

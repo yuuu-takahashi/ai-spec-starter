@@ -1,3 +1,5 @@
 # Local-only files
 settings.local.json
 error-log.jsonl
+plans
+skills/*-workspace/

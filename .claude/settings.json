@@ -71,14 +71,16 @@
     ]
   },
 
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "chrome-devtools",
-    "serena",
     "context7",
     "drawio",
-    "mermaid-mcp",
     "figma",
-    "playwright"
+    "mermaid-mcp",
+    "notion",
+    "playwright",
+    "serena"
   ],
 
   "hooks": {
@@ -116,5 +118,8 @@
   },
 
   "plansDirectory": "./.claude/plans",
-  "outputStyle": "Explanatory"
+  "outputStyle": "Explanatory",
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  }
 }

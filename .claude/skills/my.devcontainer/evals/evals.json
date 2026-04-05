@@ -1,0 +1,23 @@
+{
+  "skill_name": "my.devcontainer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "このリポジトリの devcontainer がローカルでちゃんと立ち上がるか確認して。build から順に見て、どこで落ちたか教えて。",
+      "expected_output": "フェーズA: check スクリプトまたは同等手順で build/up/exec を実行し、失敗ステップと原因候補を structured report で返す",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "devcontainer up がタイムアウトっぽいんだけど、まず何を見ればいい？いきなり設定いじらず切り分けして。",
+      "expected_output": "フェーズAを先に提案。build/up/exec のどこで詰まりがちか、ログ・mount・postCreate の疑い順を短く整理",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "別リポジトリを workspace mount してる devcontainer で、exec だけ失敗する。シンボリックリンク疑ってる。",
+      "expected_output": "フェーズAで exec 失敗の再現とログ。フェーズBで bind mount・symlink・postCreate の順で仮説最大3つ。パッチは差分案まで（明示されるまで編集しない）",
+      "files": []
+    }
+  ]
+}

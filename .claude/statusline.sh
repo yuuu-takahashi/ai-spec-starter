@@ -31,8 +31,8 @@ make_bar() {
   (( pct > 0 && filled < 1 )) && filled=1
   (( filled > width )) && filled=$width
 
-  printf "%${filled}s" | tr ' ' '▓'
-  printf "%$((width - filled))s" | tr ' ' '░'
+  printf "%${filled}s" | tr ' ' '#'
+  printf "%$((width - filled))s" | tr ' ' '-'
 }
 
 fmt_epoch() {

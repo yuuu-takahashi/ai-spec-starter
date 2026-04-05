@@ -10,27 +10,17 @@
 
 ## 出力先一覧
 
-| キー | パス | 用途 | 使用スキル |
-| ------ | ------ | ------ | ------------ |
-| `DOCS` | `${KNOWLEDGE_BASE}/docs/` | 会話サマリー・技術決定（docs モード） | `my.docs` |
-| `ERROR_ANALYSIS` | `${KNOWLEDGE_BASE}/errors/` | エラー分析レポート（error モード） | `my.docs`, `my.fix-skills` |
-| `IDEA` | `${KNOWLEDGE_BASE}/ideas/` | アイデアメモ（idea モード） | `my.docs` |
-| `KNOWLEDGE_ROOT` | `${KNOWLEDGE_BASE}/` | 汎用プラン、hand-off、thread log | `my.docs` |
-| `ERROR_LOG` | `.claude/error-log.jsonl` | フックが記録するエラーログ | `my.fix-skills` |
-| `RULES` | `.claude/rules/` | エージェントルール置き場 | 複数スキル |
-| `AGENTS` | `.claude/agents/` | エージェント定義置き場 | 複数スキル |
-| `SKILLS` | `.claude/skills/` | スキル定義と参照ファイル | 複数スキル |
-| `PROJECT_DOC` | `README.md` | このリポジトリの概要ドキュメント | 複数スキル |
-
-## ファイル命名規則
-
-| スキル | ファイル名パターン |
-| -------- | ------------------- |
-| `my.docs` (docs) | `docs-YYYY-MM-DD-{topic}.md` |
-| `my.docs` (error) | `error-YYYY-MM-DD-{error-name}.md` |
-| `my.docs` (idea) | `idea-YYYY-MM-DD-{title}.md` |
-| `my.docs` (hand-off / thread log) | `thread-YYYY-MM-DD-{topic}.md` |
-| `my.fix-skills` | `fix-skills-YYYY-MM-DD-{topic}.md` |
+| キー | パス | ファイル名パターン | 用途 | 使用スキル |
+| ------ | ------ | ------------------- | ------ | ------------ |
+| `DOCS` | `${KNOWLEDGE_BASE}/docs/` | `docs-YYYY-MM-DD-{topic}.md` | 会話サマリー・技術決定（docs モード） | `my.docs` |
+| `ERROR_ANALYSIS` | `${KNOWLEDGE_BASE}/errors/` | `error-YYYY-MM-DD-{error-name}.md` | エラー分析レポート（error モード） | `my.docs`, `my.fix-skills` |
+| `IDEA` | `${KNOWLEDGE_BASE}/ideas/` | `idea-YYYY-MM-DD-{title}.md` | アイデアメモ（idea モード） | `my.docs` |
+| `KNOWLEDGE_ROOT` | `${KNOWLEDGE_BASE}/` | `thread-YYYY-MM-DD-{topic}.md` | 汎用プラン、hand-off、thread log | `my.docs` |
+| `ERROR_LOG` | `.claude/error-log.jsonl` | — | フックが記録するエラーログ | `my.fix-skills` |
+| `RULES` | `.claude/rules/` | — | エージェントルール置き場 | 複数スキル |
+| `AGENTS` | `.claude/agents/` | — | エージェント定義置き場 | 複数スキル |
+| `SKILLS` | `.claude/skills/` | — | スキル定義と参照ファイル | 複数スキル |
+| `PROJECT_DOC` | `README.md` | — | このリポジトリの概要ドキュメント | 複数スキル |
 
 ## Notes
 

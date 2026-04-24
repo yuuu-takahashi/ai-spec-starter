@@ -108,4 +108,4 @@
 | --- | --- |
 | my.claude-manager | .claude/ 配下の設定を一元管理（一覧・整合性チェック・レポート） |
 | my.fix-skills | エラーログから原因スキルを特定し SKILL.md を修正 |
-| my.rules-creator | ルールファイル（.claude/rules/*.md）の生成・編集・削除 |
+| my-rules-creator | ルールファイル（.claude/rules/*.md）の生成・編集・削除 |

@@ -1,5 +1,5 @@
 ---
-name: my.rules-creator
+name: my-rules-creator
 description: |
   Claude Code のルールファイル（.claude/rules/*.md）を生成・一覧・編集・削除するスキル。
   ユーザーのコーディング規約、命名規則、テスト方針、セキュリティポリシー、行動ガイドラインなどの要望を受けて、

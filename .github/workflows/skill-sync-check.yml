@@ -1,0 +1,46 @@
+name: Skill Sync Check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  my-rules-creator:
+    name: my-rules-creator SKILL.md in sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compare .claude/skills/ copy with skills/ publish copy
+        run: |
+          set -euo pipefail
+
+          LOCAL=.claude/skills/my-rules-creator/SKILL.md
+          PUBLISH=skills/my-rules-creator/SKILL.md
+
+          for f in "$LOCAL" "$PUBLISH"; do
+            if [[ ! -f "$f" ]]; then
+              echo "::error file=$f::SKILL.md not found"
+              exit 1
+            fi
+            if ! grep -qE '^name: my-rules-creator$' "$f"; then
+              echo "::error file=$f::frontmatter must contain 'name: my-rules-creator'"
+              exit 1
+            fi
+          done
+
+          # The publish copy legitimately has an extra `license:` frontmatter
+          # line required by `gh skill publish`. Ignore that line, then the
+          # two files must be byte-identical.
+          if ! diff -u \
+              --label "$LOCAL" \
+              --label "$PUBLISH" \
+              <(grep -v '^license:' "$LOCAL") \
+              <(grep -v '^license:' "$PUBLISH"); then
+            echo "::error::SKILL.md drift detected between $LOCAL and $PUBLISH — sync the two copies before merging."
+            exit 1
+          fi
+
+          echo "OK: $LOCAL and $PUBLISH are in sync (ignoring license: line)."

@@ -32,9 +32,9 @@ description: |
 | 設定 | `.claude/settings.json`, `settings.local.json` | hooks, statusline 等 |
 | パス定義 | `.claude/skills/paths.md` | ファイル出力先の共通定義 |
 | ドキュメント | `.claude/CLAUDE.md` | プロジェクトコンテキスト（本体） |
-|  | `.claude/README.md` | .claude/ の詳細リファレンス |
-|  | `AGENTS.md` | エージェント参照（CLAUDE.md へ委譲） |
-|  | `README.md` | セットアップガイド（CLAUDE.md へ委譲） |
+| | `.claude/README.md` | .claude/ の詳細リファレンス |
+| | `AGENTS.md` | エージェント参照（CLAUDE.md へ委譲） |
+| | `README.md` | セットアップガイド（CLAUDE.md へ委譲） |
 
 ### 対象外
 
